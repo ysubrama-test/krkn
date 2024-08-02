@@ -163,7 +163,8 @@ def main(cfg):
         # Cluster info
         logging.info("Fetching cluster info")
         cv = ""
-        if distribution == "openshift":
+        #if distribution == "openshift":
+        if False:    
             cv = ocpcli.get_clusterversion_string()
             if prometheus_url is None:
                 try:
