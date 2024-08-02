@@ -137,7 +137,9 @@ def main(cfg):
             kubecli.initialize_clients(None)
 
         # find node kraken might be running on
-        kubecli.find_kraken_node()
+
+        if False:
+          kubecli.find_kraken_node()
 
         # Set up kraken url to track signal
         if not 0 <= int(port) <= 65535:
@@ -388,9 +390,10 @@ def main(cfg):
         # if platform is openshift will be collected
         # Cloud platform and network plugins metadata
         # through OCP specific APIs
-        if distribution == "openshift":
+        if False:
+          if distribution == "openshift":
             telemetry_ocp.collect_cluster_metadata(chaos_telemetry)
-        else:
+          else:
             telemetry_k8s.collect_cluster_metadata(chaos_telemetry)
 
         decoded_chaos_run_telemetry = ChaosRunTelemetry(json.loads(chaos_telemetry.to_json()))
